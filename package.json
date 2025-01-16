@@ -1,0 +1,24 @@
+{
+  "name": "cse341-week2-team",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azurelo/cse341-week2-team.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azurelo/cse341-week2-team/issues"
+  },
+  "homepage": "https://github.com/Azurelo/cse341-week2-team#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
