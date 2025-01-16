@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require("path");
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use(cors());
 app.use(express.static(path.join(__dirname)));
 app.get('/api/data', (req, res) => {
     res.json({ message: "Hello from API" });
