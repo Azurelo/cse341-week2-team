@@ -17,16 +17,16 @@ Content-Type: application/json
 }
 
 ### Update a Contact
-PUT http://localhost:8080/contacts/6793d84fb93346c33d653297
+PUT http://localhost:8080/contacts/6793dbd8fe341e00874216b7
 Content-Type: application/json
 
 {
-    "firstName": "Larry",
-    "lastName":"Barry",
+    "firstName": "Doug",
+    "lastName":"Smith",
     "email": "larry@example.com",
-    "favoriteColor": "Orange",
+    "favoriteColor": "Blue",
     "birthday": "02/02/00"
 }
 
 ### Delete a Contact
-DELETE http://localhost:8080/contacts/6793d4b6fe59d43ad19dcdc3
+DELETE http://localhost:8080/contacts/6793dbd8fe341e00874216b7
