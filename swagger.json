@@ -2,21 +2,28 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
-    "description": ""
+    "title": "Contacts API",
+    "description": "A RESTful API for managing contacts"
   },
-  "host": "cse341-week2-team.onrender.com/contacts",
-  "basePath": "/",
+  "host": "cse341-week2-team.onrender.com",
+  "basePath": "/contacts",
   "schemes": [
     "https"
   ],
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "summary": "Retrieve all contacts",
+        "description": "Fetches all contacts from the database",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error"
@@ -24,10 +31,21 @@
         }
       },
       "post": {
-        "description": "",
+        "summary": "Create a new contact",
+        "description": "Adds a new contact to the database",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Contact created successfully"
           },
           "400": {
             "description": "Bad Request"
@@ -37,7 +55,8 @@
     },
     "/{id}": {
       "get": {
-        "description": "",
+        "summary": "Get a contact by ID",
+        "description": "Retrieves a single contact",
         "parameters": [
           {
             "name": "id",
@@ -48,7 +67,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
           },
           "404": {
             "description": "Not Found"
@@ -59,13 +81,22 @@
         }
       },
       "put": {
-        "description": "",
+        "summary": "Update a contact",
+        "description": "Updates an existing contact",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
           }
         ],
         "responses": {
@@ -81,7 +112,8 @@
         }
       },
       "delete": {
-        "description": "",
+        "summary": "Delete a contact",
+        "description": "Removes a contact from the database",
         "parameters": [
           {
             "name": "id",
@@ -92,7 +124,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contact deleted successfully"
           },
           "400": {
             "description": "Bad Request"
@@ -100,6 +132,33 @@
           "404": {
             "description": "Not Found"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "John"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "john@example.com"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "Blue"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "07/24/78"
         }
       }
     }
