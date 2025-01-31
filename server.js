@@ -5,10 +5,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 8080;
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 app.use(cors());
 app.use(express.json()); // Allows handling JSON requests
-app.use(express.static(path.join(__dirname))); // Serves static files like index.html
+app.use(express.static(path.join(__dirname))); // Serves static 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));// files like index.html
 
 // Database connection
 mongoose.connect(process.env.MONGO_URI, {
