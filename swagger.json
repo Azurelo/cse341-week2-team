@@ -5,7 +5,7 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "cse341-week2-team.onrender.com",
+  "host": "cse341-week2-team.onrender.com/contacts",
   "basePath": "/",
   "schemes": [
     "https"
